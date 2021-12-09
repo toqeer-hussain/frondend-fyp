@@ -15,7 +15,7 @@ import {
   DialogActions,
   withStyles,
 } from "@material-ui/core";
-import copy from "copy-text-to-clipboard";
+import copy from "copy-to-clipboard";
 import React, { useEffect, useState } from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import { InputAdornment, Snackbar } from "@material-ui/core";

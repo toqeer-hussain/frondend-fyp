@@ -116,12 +116,12 @@ export default function AdminTransaction() {
             Color="green"
           />
           <Card
-            Heading="Amount Sent by Advertise"
+            Heading="Amount Sent by Advertisers(Rs)"
             SubHeading={data.brandcom}
             Color="green"
           />
           <Card
-            Heading="Amount Sent to promoter"
+            Heading="Amount Sent to promoters(Rs)"
             SubHeading={data.promotercom}
             Color="red"
           />
