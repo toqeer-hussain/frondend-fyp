@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import React, { useState, useContext, useEffect } from "react";
 import MyButton from "../UI/MyButton";
-
+import copy from "copy-text-to-clipboard";
 import Border from "../UI/Border";
 import Spacer from "../UI/Spacer";
 import BrandStat from "../UI/BrandStat";
@@ -184,7 +184,10 @@ export default function MarketPlace() {
             <DialogActions>
               <Button
                 variant="outlined"
-                onClick={() => setopen(false)}
+                onClick={() => {
+                  copy(redirectwebsite);
+                  setopen(false);
+                }}
                 color="primary"
               >
                 Copy

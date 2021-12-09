@@ -94,7 +94,10 @@ export default function Probankdetail() {
       const response = await ApiCall.post("/bankdetail", values);
       if (response.data.updated) {
         setsuccess(true);
-      } else settext(true);
+      } else {
+        setsuccess(true);
+        settext(true);
+      }
     },
   });
 

@@ -26,17 +26,7 @@ export default function MyTable({ promoter }) {
     getdata();
   }, []);
   // console.log("test", test);
-  function createData(Bname, Clicks, Conversions, Sales, Return, Returnp, com) {
-    return { Bname, Clicks, Conversions, Sales, Return, Returnp, com };
-  }
 
-  const rows = [
-    createData("Asad12", 25, 6, "3%", 3200, 20, "5%"),
-    createData("ali25", 250, 8, "5%", 4300, 5, "2%"),
-    createData("hamza12", 52, 6, "9%", 2015, 8, "9%"),
-    createData("toqeer45", 96, 4, "9%", 8541, 5, "2%"),
-    createData("Test12", 85, 9, "8%", 9678, 4, "1%"),
-  ];
   return (
     <div style={{ marginTop: "10px" }}>
       <TableContainer component={Paper}>
@@ -52,7 +42,7 @@ export default function MyTable({ promoter }) {
                 Sales
               </TableCell>
               <TableCell style={{ fontWeight: "bold" }} align="right">
-                Conversions
+                Conversions %
               </TableCell>
               <TableCell style={{ fontWeight: "bold" }} align="right">
                 Commission

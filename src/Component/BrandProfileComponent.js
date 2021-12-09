@@ -15,6 +15,7 @@ import {
   DialogActions,
   withStyles,
 } from "@material-ui/core";
+import copy from "copy-text-to-clipboard";
 import React, { useEffect, useState } from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import { InputAdornment, Snackbar } from "@material-ui/core";
@@ -281,7 +282,12 @@ export default function BrandProfileComponent() {
           <DialogActions>
             <Button
               variant="outlined"
-              onClick={() => setopen(false)}
+              onClick={() => {
+                copy(
+                  `<script async defer data-website-id="${webid}" src="https://jvsea.herokuapp.com/jvseatracking.js"></script>`
+                );
+                setopen(false);
+              }}
               color="primary"
             >
               Copy
