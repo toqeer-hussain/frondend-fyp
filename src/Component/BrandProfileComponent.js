@@ -273,7 +273,7 @@ export default function BrandProfileComponent() {
                   readOnly
                   className="webscript"
                   cols="60"
-                  defaultValue={`<script async defer data-website-id="${webid}" src="http://localhost:3000/jvseatracking.js"></script>`}
+                  defaultValue={`<script async defer data-website-id="${webid}" src="https://jvsea.herokuapp.com/jvseatracking.js"></script>`}
                 />
               </div>
             </DialogContentText>
