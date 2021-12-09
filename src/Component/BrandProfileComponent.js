@@ -49,6 +49,7 @@ let itemcategory = [
 ];
 
 export default function BrandProfileComponent() {
+  const [copyclip, setcopyclip] = useState(false);
   const [data, setdata] = useState(null);
   const [status, setstatus] = useState("Pending");
   const [success, setsuccess] = useState(false);
@@ -106,6 +107,16 @@ export default function BrandProfileComponent() {
       >
         <MuiAlert variant="filled" elevation="6" severity="success">
           Your Brand has been updated
+        </MuiAlert>
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={copyclip}
+        autoHideDuration={2000}
+        onClose={() => setcopyclip(false)}
+      >
+        <MuiAlert variant="filled" elevation="6" severity="success">
+          Copied to clipboard
         </MuiAlert>
       </Snackbar>
       <div style={{ fontWeight: "bold", fontSize: "25px" }}>Brand Detail</div>
@@ -286,6 +297,7 @@ export default function BrandProfileComponent() {
                 copy(
                   `<script async defer data-website-id="${webid}" src="https://jvsea.herokuapp.com/jvseatracking.js"></script>`
                 );
+                setcopyclip(true);
                 setopen(false);
               }}
               color="primary"
