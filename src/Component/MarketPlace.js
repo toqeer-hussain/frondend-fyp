@@ -69,7 +69,7 @@ export default function MarketPlace() {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{ vertical: "center", horizontal: "center" }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={success}
         autoHideDuration={2000}
         onClose={() => setsuccess(false)}
