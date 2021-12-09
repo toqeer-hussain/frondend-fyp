@@ -53,8 +53,12 @@ export default function AdminDashBoard() {
             Color="green"
           />
           <Card Heading="Returns" SubHeading={data.Refund} Color="green" />
-          <Card Heading="Revenue" SubHeading={data.revenuecount} Color="red" />
-          <Card Heading="Earning" SubHeading={data.profit} Color="red" />
+          <Card
+            Heading="Revenue(Rs)"
+            SubHeading={data.revenuecount}
+            Color="red"
+          />
+          <Card Heading="Earning(Rs)" SubHeading={data.profit} Color="red" />
         </div>
         <Spacer space="10" />
         <div style={{ display: "flex" }}>
