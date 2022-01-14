@@ -65,32 +65,32 @@ export default function BdDashBoard() {
         <Spacer space="10" />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Card
-            Heading="Total Sale"
-            SubHeading={data.totalSale}
+            SubHeading="Total Sale"
+            Heading={data.totalSale}
             Color="green"
             ICON={TouchApp}
           />{" "}
           <Card
-            Heading="Succeed"
-            SubHeading={data.succeed}
+            SubHeading="Succeed"
+            Heading={data.succeed}
             Color="green"
             ICON={TouchApp}
           />{" "}
           <Card
-            Heading="Revenue(Rs)"
-            SubHeading={data.revenuecount}
+            SubHeading="Revenue(Rs)"
+            Heading={data.revenuecount}
             Color="green"
             ICON={TouchApp}
           />{" "}
           <Card
-            Heading="Returns"
-            SubHeading={data.Refund}
+            SubHeading="Returns"
+            Heading={data.Refund}
             Color="red"
             ICON={TouchApp}
           />
           <Card
-            Heading="Pen.Comissions"
-            SubHeading={data.pendingcom}
+            SubHeading="Pen.Comissions"
+            Heading={data.pendingcom}
             Color="red"
             ICON={TouchApp}
           />
