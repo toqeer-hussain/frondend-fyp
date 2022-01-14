@@ -32,6 +32,7 @@ export default function SideBar() {
           flexDirection: "column",
           width: "70px",
           minHeight: "625px",
+    height:"100vh",
           boxShadow: "-3px 0px 10px 4px rgba(0,0,0,0.2)",
         }}
       >
