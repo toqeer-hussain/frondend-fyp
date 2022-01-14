@@ -105,7 +105,7 @@ export default function MarketPlace() {
             );
           })}
         </div>
-        <div style={{ flex: 1, marginRight: "40px", marginLeft: "20px" }}>
+        <div style={{ flex: 1, marginRight: "40px", marginLeft: "20px",marginTop:"55px" }}>
           <Search
             Heading="Brands"
             type="text"
