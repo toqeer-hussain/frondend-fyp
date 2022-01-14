@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+ Tooltip
+} from "@material-ui/core";
+
 
 export default function MenuItem({
   Icon,
@@ -7,6 +11,7 @@ export default function MenuItem({
   nothead,
   active,
   onPress,
+  tooltext
 }) {
   const nav = () => {
     console.log("called", subheading);
@@ -15,6 +20,7 @@ export default function MenuItem({
   };
 
   return (
+    <Tooltip title={tooltext} >
     <div
       onClick={nav}
       style={{
@@ -46,9 +52,10 @@ export default function MenuItem({
           }}
         />
       </Link>
-      {/* <span style={{ fontSize: "13px", color: active ? "white" : "black" }}>
+      {nothead && <span style={{ fontSize: "13px", color: active ? "white" : "black" }}>
         {subheading}
-      </span> */}
+      </span>}
     </div>
+    </Tooltip>
   );
 }

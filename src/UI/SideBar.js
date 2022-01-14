@@ -42,18 +42,20 @@ export default function SideBar() {
             style={{ width: "100%", height: "100%" }}
           />
         </div>
-        <MenuItem Icon={AccountCircleIcon} nothead subheading={user.name} />
+        <MenuItem Icon={AccountCircleIcon} nothead subheading={user.name} tooltext="User Profile" />
         <MenuItem
           Icon={DashboardIcon}
           active={selected == "DashBoard"}
           subheading="DashBoard"
           onPress={setselected}
+          tooltext="Dashboard"
         />
         <MenuItem
           Icon={AttachMoneySharpIcon}
           active={selected == "Transaction"}
           subheading="Transaction"
           onPress={setselected}
+          tooltext="Transaction"
         />
 
         {user.Role != "admin" && (
@@ -62,6 +64,7 @@ export default function SideBar() {
             active={selected == "Editing"}
             subheading="Editing"
             onPress={setselected}
+            tooltext="Change Your Profile data"
           />
         )}
         {user.Role == "admin" && (
