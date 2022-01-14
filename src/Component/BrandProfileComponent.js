@@ -15,6 +15,7 @@ import {
   DialogActions,
   withStyles,
 } from "@material-ui/core";
+import copy from "copy-to-clipboard";
 import React, { useEffect, useState } from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import { InputAdornment, Snackbar } from "@material-ui/core";
@@ -48,6 +49,7 @@ let itemcategory = [
 ];
 
 export default function BrandProfileComponent() {
+  const [copyclip, setcopyclip] = useState(false);
   const [data, setdata] = useState(null);
   const [status, setstatus] = useState("Pending");
   const [success, setsuccess] = useState(false);
@@ -105,6 +107,16 @@ export default function BrandProfileComponent() {
       >
         <MuiAlert variant="filled" elevation="6" severity="success">
           Your Brand has been updated
+        </MuiAlert>
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={copyclip}
+        autoHideDuration={2000}
+        onClose={() => setcopyclip(false)}
+      >
+        <MuiAlert variant="filled" elevation="6" severity="success">
+          Copied to clipboard
         </MuiAlert>
       </Snackbar>
       <div style={{ fontWeight: "bold", fontSize: "25px" }}>Brand Detail</div>
@@ -273,7 +285,7 @@ export default function BrandProfileComponent() {
                   readOnly
                   className="webscript"
                   cols="60"
-                  defaultValue={`<script async defer data-website-id="${webid}" src="http://localhost:3000/jvseatracking.js"></script>`}
+                  defaultValue={`<script async defer data-website-id="${webid}" src="https://jvsea.herokuapp.com/jvseatracking.js"></script>`}
                 />
               </div>
             </DialogContentText>
@@ -281,7 +293,13 @@ export default function BrandProfileComponent() {
           <DialogActions>
             <Button
               variant="outlined"
-              onClick={() => setopen(false)}
+              onClick={() => {
+                copy(
+                  `<script async defer data-website-id="${webid}" src="https://jvsea.herokuapp.com/jvseatracking.js"></script>`
+                );
+                setcopyclip(true);
+                setopen(false);
+              }}
               color="primary"
             >
               Copy

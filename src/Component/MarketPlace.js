@@ -1,19 +1,15 @@
 import {
-  Input,
-  InputAdornment,
-  IconButton,
-  TextField,
-  Modal,
   Dialog,
   DialogContent,
   DialogTitle,
   DialogContentText,
   Button,
   DialogActions,
+  Snackbar,
 } from "@material-ui/core";
 import React, { useState, useContext, useEffect } from "react";
 import MyButton from "../UI/MyButton";
-
+import copy from "copy-to-clipboard";
 import Border from "../UI/Border";
 import Spacer from "../UI/Spacer";
 import BrandStat from "../UI/BrandStat";
@@ -22,6 +18,7 @@ import { useHistory, useLocation } from "react-router";
 import Nav from "./Nav";
 import { UserContext } from "../App";
 import ApiCall from "../BackendCall";
+import MuiAlert from "@material-ui/lab/Alert";
 
 let itemcategory = [
   { 10: "Clothes" },
@@ -36,6 +33,7 @@ let itemcategory = [
 export default function MarketPlace() {
   const [open, setopen] = useState(false);
   const [alert, setalert] = useState(false);
+  const [success, setsuccess] = useState(false);
   const [data, setdata] = useState([]);
   const [Cat, setCat] = useState(Object.keys(itemcategory[0])[0]);
   const action = useContext(UserContext);
@@ -65,6 +63,16 @@ export default function MarketPlace() {
 
   return (
     <div>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={success}
+        autoHideDuration={2000}
+        onClose={() => setsuccess(false)}
+      >
+        <MuiAlert variant="filled" elevation="6" severity="success">
+          Copied to clipboard
+        </MuiAlert>
+      </Snackbar>
       <div style={{ display: "flex", marginTop: "25px" }}>
         <div style={{ width: "15%", marginTop: "24px" }}>
           <MyButton
@@ -184,7 +192,11 @@ export default function MarketPlace() {
             <DialogActions>
               <Button
                 variant="outlined"
-                onClick={() => setopen(false)}
+                onClick={() => {
+                  copy(redirectwebsite);
+                  setsuccess(true);
+                  setopen(false);
+                }}
                 color="primary"
               >
                 Copy
