@@ -27,7 +27,7 @@ export default function AdminBrandProfile() {
     <div>
       <div style={{ display: "flex" }}>
         <SideBar />
-        <div style={{ flex: 1, margin: "10px" }}>
+        <div style={{ flex: 1, margin: "10px",marginTop:"55px" }}>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>

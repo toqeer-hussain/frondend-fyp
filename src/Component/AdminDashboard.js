@@ -74,32 +74,32 @@ export default function AdminDashBoard() {
         <Spacer space="10" />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Card
-            Heading="Total Sale"
-            SubHeading={data.totalsale || "0"}
+            SubHeading="Total Sale"
+            Heading={data.totalsale || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            Heading="Succeed Sale"
-            SubHeading={data.totalsucceed || "0"}
+            SubHeading="Succeed Sale"
+            Heading={data.totalsucceed || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            Heading="Returns"
-            SubHeading={data.Refund || "0"}
+            SubHeading="Returns"
+            Heading={data.Refund || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            Heading="Revenue"
-            SubHeading={data.revenuecount || "0"}
+            SubHeading="Revenue"
+            Heading={data.revenuecount || "0"}
             Color="red"
             ICON={TouchApp}
           />
           <Card
-            Heading="Earning"
-            SubHeading={data.profit || "0"}
+            SubHeading="Earning"
+            Heading={data.profit || "0"}
             Color="red"
             ICON={TouchApp}
           />

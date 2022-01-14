@@ -69,11 +69,13 @@ export default function AdminBrand() {
   const [category, setcategory] = useState("10");
   const [accountnumber, setaccountnumber] = useState(null);
   const [text, settext] = useState(false);
+  const [inprogress, setinprogress] = useState(false);
   const [success, setsuccess] = useState(false);
   const [price, setprice] = useState();
   const [name, setname] = useState("");
 
   const handlesubmit = async () => {
+    setinprogress(true)
     const response = await ApiCall.post("/transaction", {
       category,
       accountnumber,
@@ -81,9 +83,11 @@ export default function AdminBrand() {
       Role: "promoter",
     });
     if (response.data.done) {
+      setinprogress(false)
       settext(true);
       setsuccess(true);
     } else {
+      setinprogress(false)
       setsuccess(true);
     }
     console.log(response.data);
@@ -146,7 +150,19 @@ export default function AdminBrand() {
         /> */}
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <MyButton onPress={handlesubmit}>Verify</MyButton>
+      <MyButton
+              style={{ display: "flex" }}
+              onPress={!inprogress ? () => handlesubmit() : null}
+            >
+              {!inprogress ? (
+                "Verify"
+              ) : (
+                <CircularProgress
+                  size={20}
+                  style={{ marginLeft: "10px", color: "white" }}
+                />
+              )}
+            </MyButton>
       </div>
     </div>
   );

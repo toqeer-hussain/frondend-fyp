@@ -31,7 +31,7 @@ export default function LogIn() {
 
   const [type, settype] = useState("advertiser");
   const [success, setsuccess] = useState(false);
-
+  const [inprogress, setinprogress] = useState(false);
   const [token, setToken] = useState("");
 
   const [serverMessage, setserverMessage] = useState("Successfully Login");
@@ -43,15 +43,20 @@ export default function LogIn() {
     },
     validationSchema: Uservalidation,
     onSubmit: (values) => {
+      setinprogress(true)
       values.Role = "admin";
       ApiCall.post("/user/login", values)
         .then((result) => {
           console.log(result);
           if (result.data.All_Input) {
-            return setserverMessage(result.data.message);
+            setserverMessage(result.data.message);
+            setinprogress(false)
+            return ;
           }
           if (result.data.Wrong_Detail) {
-            return setserverMessage(result.data.message);
+            setserverMessage(result.data.message);
+            setinprogress(false)
+            return ;
           }
           console.log("user detail", result.data);
 
@@ -123,11 +128,16 @@ export default function LogIn() {
 
             <MyButton
               style={{ display: "flex" }}
-              onPress={() => {
-                formik.handleSubmit();
-              }}
+              onPress={!inprogress ? () => formik.handleSubmit() : null}
             >
-              SIGN IN
+              {!inprogress ? (
+                "SIGN IN"
+              ) : (
+                <CircularProgress
+                  size={20}
+                  style={{ marginLeft: "10px", color: "white" }}
+                />
+              )}
             </MyButton>
 
             <Spacer space={5} />
