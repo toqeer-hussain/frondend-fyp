@@ -51,6 +51,7 @@ let itemcategory = [
 export default function BrandProfileComponent() {
   const [copyclip, setcopyclip] = useState(false);
   const [data, setdata] = useState(null);
+  const [inprogress, setinprogress] = useState(false);
   const [status, setstatus] = useState("Pending");
   const [success, setsuccess] = useState(false);
   console.log("detail", data);
@@ -66,8 +67,10 @@ export default function BrandProfileComponent() {
     },
     validationSchema: websitvalidation,
     onSubmit: (values) => {
+       setinprogress(true);
       console.log("vlaue of formik inside");
       ApiCall.post("/website", values).then((result) => {
+        setinprogress(false);
         setwebid(result.data.webid);
         setwebsite(result.data.website);
         console.log("is updated dat", result.data.updated);
@@ -240,13 +243,18 @@ export default function BrandProfileComponent() {
       </div>
       <Spacer space="10" />
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <MyButton
-          onPress={() => {
-            console.log("what is called inside onree");
-            formik.handleSubmit();
-          }}
+          <MyButton
+          style={{ display: "flex" }}
+          onPress={!inprogress ? () => formik.handleSubmit() : null}
         >
-          Submit
+          {!inprogress ? (
+            "Submit"
+          ) : (
+            <CircularProgress
+              size={20}
+              style={{ marginLeft: "10px", color: "white" }}
+            />
+          )}
         </MyButton>
       </div>
       <Spacer space="10" /> <Spacer space="10" />
