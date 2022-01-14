@@ -65,7 +65,7 @@ export default function MarketPlace() {
 
   return (
     <div>
-      <div style={{ display: "flex", marginTop: "25px" }}>
+      <div style={{ display: "flex", marginTop: "10px" }}>
         <div style={{ width: "15%", marginTop: "24px" }}>
           <MyButton
             fillColor="yellow"
@@ -97,7 +97,7 @@ export default function MarketPlace() {
             );
           })}
         </div>
-        <div style={{ flex: 1, marginRight: "40px", marginLeft: "20px" }}>
+        <div style={{ flex: 1, marginRight: "40px", marginLeft: "20px" ,marginTop: "55px"}}>
           <Search
             Heading="Brands"
             type="text"
