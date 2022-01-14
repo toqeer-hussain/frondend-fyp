@@ -99,7 +99,7 @@ export default function MyTable({ promoter }) {
                 <TableCell align="right">{row.webid.brand}</TableCell>
                 <TableCell align="right">{getdate(row.createdAt)}</TableCell>
                 <TableCell align="right">{gettime(row.createdAt)}</TableCell>
-                <TableCell align="right">{row.track?.city}</TableCell>
+                <TableCell align="right">{row?.city}</TableCell>
                 <TableCell align="right">
                   <span>&#8360;</span>{" "}
                   {`${row.products.reduce(
