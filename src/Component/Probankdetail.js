@@ -96,9 +96,12 @@ export default function Probankdetail() {
       console.log("vlaue of formik inside");
       const response = await ApiCall.post("/bankdetail", values);
       if (response.data.updated) {
+        setinprogress(false);
         setsuccess(true);
-      } else settext(true);
-      setinprogress(false);
+      } else {
+        setinprogress(false);
+        settext(true);}
+      
     },
   });
 
