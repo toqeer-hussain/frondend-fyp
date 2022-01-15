@@ -88,7 +88,7 @@ export default function LogIn() {
         justifyContent: "center",
         alignItems: "center",
         height: "580px",
-        border: "1px solid black",
+      
       }}
     >
       <Snackbar

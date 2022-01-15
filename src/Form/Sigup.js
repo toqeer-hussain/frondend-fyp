@@ -81,7 +81,7 @@ export default function Signup() {
         justifyContent: "center",
         alignItems: "center",
         height: "580px",
-        border: "1px solid black",
+        
       }}
     >
       <Snackbar

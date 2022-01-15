@@ -99,8 +99,11 @@ export default function Probankdetail() {
         setinprogress(false);
         setsuccess(true);
       } else {
+        console.log("called for nenw record")
         setinprogress(false);
-        settext(true);}
+        settext(true);
+          setsuccess(true);
+        }
       
     },
   });

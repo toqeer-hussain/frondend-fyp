@@ -5,13 +5,14 @@ import {
   MenuItem,
   FormControl,
   Select,
-  CircularProgress
+  CircularProgress,
 } from "@material-ui/core/";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import MyButton from "../UI/MyButton";
 import ApiCall from "../BackendCall";
 import MuiAlert from "@material-ui/lab/Alert";
+import { useDebouncedCallback } from "use-debounce";
 import { InputAdornment, Snackbar } from "@material-ui/core";
 const bankvalidation = Yup.object({
   bankname: Yup.string().required(),
@@ -72,9 +73,10 @@ export default function AdminBrand() {
   const [accountnumber, setaccountnumber] = useState(null);
   const [text, settext] = useState(false);
   const [success, setsuccess] = useState(false);
+  const [paymentdue, setpaymentdue] = useState("some");
 
   const handlesubmit = async () => {
-    setinprogress(true)
+    setinprogress(true);
     const response = await ApiCall.post("/transaction", {
       category,
       accountnumber,
@@ -82,15 +84,15 @@ export default function AdminBrand() {
       Role: "advertiser",
     });
     if (response.data.done) {
-      setinprogress(false)
+      setinprogress(false);
       settext(true);
       setsuccess(true);
     } else {
-      setinprogress(false)
+      setinprogress(false);
       setsuccess(true);
     }
-    
-    console.log(response.data);
+
+    console.log("paymentdue", paymentdue);
   };
   return (
     <div>
@@ -131,6 +133,7 @@ export default function AdminBrand() {
         <TextField
           style={{ marginRight: "12px" }}
           value={accountnumber}
+          error={!paymentdue ? true :false}
           onChange={(e) => setaccountnumber(e.target.value)}
           name="accountnumber"
           id="standard-basic"
@@ -138,31 +141,43 @@ export default function AdminBrand() {
           inputProps={{ type: "Number" }}
           variant="outlined"
         />
-        {/* <TextField
+        <TextField
           style={{ marginRight: "12px" }}
-          value={price}
-          onChange={(e) => setprice(e.target.value)}
+          value={paymentdue}
+          
           name="accountnumber"
           id="standard-basic"
           label="Price"
-          inputProps={{ type: "Number" }}
+          inputProps={{ type: "Number", readOnly: true }}
           variant="outlined"
-        /> */}
+        />
+        <MyButton
+          onPress={async () => {
+            
+            const respone = await ApiCall.post("/checkpending", {
+              Role: "advertiser",
+              accountnumber: accountnumber,
+            });
+            setpaymentdue(respone?.data?.pendingcom);
+          }}
+        >
+          Check 
+        </MyButton>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-      <MyButton
-              style={{ display: "flex" }}
-              onPress={!inprogress ? () => handlesubmit() : null}
-            >
-              {!inprogress ? (
-                "Verify"
-              ) : (
-                <CircularProgress
-                  size={20}
-                  style={{ marginLeft: "10px", color: "white" }}
-                />
-              )}
-            </MyButton>
+        <MyButton
+          style={{ display: "flex" }}
+          onPress={!inprogress ? () => handlesubmit() : null}
+        >
+          {!inprogress ? (
+            "Verify"
+          ) : (
+            <CircularProgress
+              size={20}
+              style={{ marginLeft: "10px", color: "white" }}
+            />
+          )}
+        </MyButton>
       </div>
     </div>
   );

@@ -74,7 +74,7 @@ export default function AdminBrand() {
   const [success, setsuccess] = useState(false);
   const [price, setprice] = useState();
   const [name, setname] = useState("");
-
+ const [paymentdue, setpaymentdue] = useState("some");
   const handlesubmit = async () => {
     setinprogress(true)
     const response = await ApiCall.post("/transaction", {
@@ -132,6 +132,7 @@ export default function AdminBrand() {
         <TextField
           style={{ marginRight: "12px" }}
           value={accountnumber}
+           error={!paymentdue ? true :false}
           onChange={(e) => setaccountnumber(e.target.value)}
           name="accountnumber"
           id="standard-basic"
@@ -139,16 +140,28 @@ export default function AdminBrand() {
           inputProps={{ type: "Number" }}
           variant="outlined"
         />
-        {/* <TextField
+        <TextField
           style={{ marginRight: "12px" }}
-          value={price}
-          onChange={(e) => setprice(e.target.value)}
+          value={paymentdue}
+          
           name="accountnumber"
           id="standard-basic"
           label="Price"
-          inputProps={{ type: "Number" }}
+          inputProps={{ type: "Number", readOnly: true }}
           variant="outlined"
-        /> */}
+        />
+        <MyButton
+          onPress={async () => {
+            
+            const respone = await ApiCall.post("/promoterpen", {
+              Role: "advertiser",
+              accountnumber: accountnumber,
+            });
+            setpaymentdue(respone?.data?.comsum);
+          }}
+        >
+          Check 
+        </MyButton>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
       <MyButton
