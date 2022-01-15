@@ -17,7 +17,7 @@ import ApiCall from "../BackendCall";
 
 export default function ProDashBoard() {
   const [data, setdata] = useState({});
-
+  const [token, settoken] = useState("");
   const getdata = async () => {
     const response = await ApiCall.get("/prostat");
     console.log("data recired", response.data);
@@ -25,6 +25,7 @@ export default function ProDashBoard() {
   };
 
   useEffect(() => {
+    settoken(JSON.parse(localStorage.getItem("token")));
     getdata();
   }, []);
   console.log("promoter");
@@ -108,7 +109,12 @@ export default function ProDashBoard() {
               alignSelf: "center",
             }}
           >
-            EXPORT
+            <a
+              style={{ color: "white", textDecoration: "none" }}
+              href={`http://localhost:3000/downloadpromoterSale/?token=${token}`}
+            >
+              EXPORT
+            </a>
           </div>
         </div>
         <Border space="5" />
@@ -130,30 +136,22 @@ export default function ProDashBoard() {
               marginBottom: "5px",
             }}
           >
-            <TextField
-              id="standard-basic"
-              Heading="Brands"
-              type="text"
-              style={{ marginRight: "5px" }}
-              label="Search"
-              placeholder="Search Here"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
             <div
               style={{
                 background: "green",
                 color: "white",
                 padding: "3px",
+
+                textDecoration: "none",
                 // alignSelf: "center",
               }}
             >
-              EXPORT
+              <a
+                style={{ color: "white", textDecoration: "none" }}
+                href={`http://localhost:3000/downloadtopbrand/?token=${token}`}
+              >
+                EXPORT
+              </a>
             </div>
           </div>
         </div>

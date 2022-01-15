@@ -17,6 +17,7 @@ import { TouchApp } from "@material-ui/icons";
 
 export default function BdDashBoard() {
   const [data, setdata] = useState("");
+  const [token, settoken] = useState("");
   const getdata = async () => {
     const response = await ApiCall.get("/adminpending");
     console.log("recried data", response.data);
@@ -25,6 +26,7 @@ export default function BdDashBoard() {
     setdata(response.data);
   };
   useEffect(() => {
+    settoken(JSON.parse(localStorage.getItem("token")));
     getdata();
   }, []);
 
@@ -106,9 +108,18 @@ export default function BdDashBoard() {
               color: "white",
               padding: "3px",
               alignSelf: "center",
+              cursor: "pointer",
+            }}
+            onClick={async () => {
+              // await ApiCall.get("/downloadSales");
             }}
           >
-            EXPORT
+            <a
+              style={{ color: "white", textDecoration: "none" }}
+              href={`http://localhost:3000/downloadSales/?token=${token}`}
+            >
+              EXPORT
+            </a>
           </div>
         </div>
         <Border space="5" />
@@ -132,7 +143,7 @@ export default function BdDashBoard() {
               marginBottom: "5px",
             }}
           >
-            <TextField
+            {/* <TextField
               id="standard-basic"
               Heading="Brands"
               type="text"
@@ -146,16 +157,22 @@ export default function BdDashBoard() {
                   </InputAdornment>
                 ),
               }}
-            />
+            /> */}
             <div
               style={{
                 background: "green",
                 color: "white",
                 padding: "3px",
+                cursor: "pointer",
                 // alignSelf: "center",
               }}
             >
-              EXPORT
+              <a
+                style={{ color: "white", textDecoration: "none" }}
+                href={`http://localhost:3000/downloadtoppromoter/?token=${token}`}
+              >
+                EXPORT
+              </a>
             </div>
           </div>
         </div>

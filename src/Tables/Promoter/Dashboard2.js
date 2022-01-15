@@ -58,12 +58,6 @@ export default function MyTable({ promoter }) {
               <TableCell style={{ fontWeight: "bold" }} align="right">
                 Commission
               </TableCell>
-              <TableCell style={{ fontWeight: "bold" }} align="right">
-                Return
-              </TableCell>
-              <TableCell style={{ fontWeight: "bold" }} align="right">
-                Return %
-              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -79,14 +73,6 @@ export default function MyTable({ promoter }) {
                 <TableCell align="right">
                   {" "}
                   <span>&#8360;</span> {row.commission}
-                </TableCell>
-                <TableCell align="right">
-                  {" "}
-                  <span>&#8360;</span> {row.Return || "0"}
-                </TableCell>
-                <TableCell align="right">
-                  {" "}
-                  <span>&#8360;</span> {row.com || "0"}
                 </TableCell>
               </TableRow>
             ))}
