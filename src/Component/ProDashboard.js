@@ -111,7 +111,7 @@ export default function ProDashBoard() {
           >
             <a
               style={{ color: "white", textDecoration: "none" }}
-              href={`http://localhost:3000/downloadpromoterSale/?token=${token}`}
+              href={`https://jvsea.herokuapp.com/downloadpromoterSale/?token=${token}`}
             >
               EXPORT
             </a>
@@ -148,7 +148,7 @@ export default function ProDashBoard() {
             >
               <a
                 style={{ color: "white", textDecoration: "none" }}
-                href={`http://localhost:3000/downloadtopbrand/?token=${token}`}
+                href={`https://jvsea.herokuapp.com/downloadtopbrand/?token=${token}`}
               >
                 EXPORT
               </a>
