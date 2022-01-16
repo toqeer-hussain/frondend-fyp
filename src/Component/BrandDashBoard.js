@@ -116,7 +116,7 @@ export default function BdDashBoard() {
           >
             <a
               style={{ color: "white", textDecoration: "none" }}
-              href={`http://localhost:3000/downloadSales/?token=${token}`}
+              href={`https://jvsea.herokuapp.com/downloadSales/?token=${token}`}
             >
               EXPORT
             </a>
@@ -169,7 +169,7 @@ export default function BdDashBoard() {
             >
               <a
                 style={{ color: "white", textDecoration: "none" }}
-                href={`http://localhost:3000/downloadtoppromoter/?token=${token}`}
+                href={`https://jvsea.herokuapp.com/downloadtoppromoter/?token=${token}`}
               >
                 EXPORT
               </a>
