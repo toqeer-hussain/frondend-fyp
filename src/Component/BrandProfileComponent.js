@@ -68,7 +68,7 @@ export default function BrandProfileComponent() {
     },
     validationSchema: websitvalidation,
     onSubmit: (values) => {
-       setinprogress(true);
+      setinprogress(true);
       console.log("vlaue of formik inside");
       ApiCall.post("/website", values).then((result) => {
         setinprogress(false);
@@ -221,7 +221,7 @@ export default function BrandProfileComponent() {
             variant="outlined"
             name="description"
             type="textarea"
-            placeholder="Enter the Description"
+            placeholder="Inspire promoters that why they should promote your brand e.g. Best commission rate"
             inputProps={{ type: "textarea", row: 10 }}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -244,7 +244,7 @@ export default function BrandProfileComponent() {
       </div>
       <Spacer space="10" />
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <MyButton
+        <MyButton
           style={{ display: "flex" }}
           onPress={!inprogress ? () => formik.handleSubmit() : null}
         >
@@ -257,6 +257,49 @@ export default function BrandProfileComponent() {
             />
           )}
         </MyButton>
+      </div>
+      <div>
+        <strong> About Status: </strong>
+        <ol style={{ marginLeft: "15px" }}>
+          <li>
+            Status will automatically update to "Active" when you will place the
+            integration code successfully in your website head tag.
+          </li>
+          <li>
+            To get the integration code, please click on submit button after
+            entering all the required details
+          </li>
+        </ol>
+        <br></br>
+        <h4>
+          <strong>IMPORTANT INSTRUCTION FOR INTEGRATION: </strong>
+        </h4>
+        <ol style={{ marginLeft: "15px" }}>
+          <li>
+            Make sure your "Thank you" page url is "thank-you" or "thankyou" or
+            "thank_you".
+          </li>
+          <li>Add these classes in your "thank you" page.</li>
+
+          <ol style={{ marginLeft: "20px" }} type="I">
+            <li>"jvsea_order_id" in tag which contains only "order id".</li>
+            <li>
+              "jvsea_product_name" in tag which contains only "product name".
+            </li>
+            <li>
+              "jvsea_product_quantity" in tag which contains only "product
+              quantity".
+            </li>
+            <li>
+              "jvsea_product_price" in tag which contains only "product price".
+            </li>
+          </ol>
+        </ol>
+        <strong>Note: </strong>
+        <span>
+          A "thank you" page is the page which appear after order confirmation
+          and it is must to successfully track the sale record.
+        </span>
       </div>
       <Spacer space="10" /> <Spacer space="10" />
       <Dialog

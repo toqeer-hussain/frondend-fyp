@@ -68,7 +68,7 @@ export default function BrandProfile() {
         <div style={{ fontWeight: "bold", fontSize: "25px" }}>Bank Detail</div>
         <Border space="5" />
         <Spacer space="10" />
-        <Bdbank />
+        <Bdbank advertiser={true} />
       </div>
     </div>
   );

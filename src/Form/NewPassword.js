@@ -35,7 +35,7 @@ export default function NewPassword() {
   const history = useHistory();
   console.log(history);
   const action = useContext(UserContext);
-  const [showform, setshowform] = useState(true);
+  const [showform, setshowform] = useState(false);
   const [serverMessage, setserverMessage] = useState({});
   const [success, setsuccess] = useState(false);
 
@@ -53,7 +53,7 @@ export default function NewPassword() {
     },
     validationSchema: Uservalidation,
     onSubmit: (values) => {
-      action.setlogin(true);
+      // action.setlogin(true);
       setsuccess(true);
 
       ApiCall.post(`/reset_password/new_password/${token}`, values)
@@ -93,7 +93,7 @@ export default function NewPassword() {
           >
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              open={true}
+              open={success}
               autoHideDuration={2000}
               onClose={() => setsuccess(false)}
             >

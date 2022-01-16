@@ -32,7 +32,8 @@ export default function SideBar() {
           flexDirection: "column",
           width: "70px",
           minHeight: "625px",
-    height:"100vh",
+          height: "100vh",
+
           boxShadow: "-3px 0px 10px 4px rgba(0,0,0,0.2)",
         }}
       >
@@ -43,7 +44,12 @@ export default function SideBar() {
             style={{ width: "100%", height: "100%" }}
           />
         </div>
-        <MenuItem Icon={AccountCircleIcon} nothead subheading={user.name} tooltext="User Profile" />
+        <MenuItem
+          Icon={AccountCircleIcon}
+          nothead
+          subheading={user.name}
+          tooltext="User Profile"
+        />
         <MenuItem
           Icon={DashboardIcon}
           active={selected == "DashBoard"}

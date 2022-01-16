@@ -25,7 +25,7 @@ export default function MyButton({
         alignItems: "center",
         cursor: "pointer",
         color: "white",
-        boxShadow: ` 1px 1px 7px 1px ${fillColor || "#242333"}`,
+        boxShadow: ` 1px 1px 2px 1px ${fillColor || "#242333"}`,
         ...props.style,
       }}
       onClick={onPress}

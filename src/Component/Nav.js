@@ -23,6 +23,20 @@ export default function Nav({ login }) {
   });
 
   console.log(NavHead);
+  const getdashboard = () => {
+    if (loggedin && NavHead == "Market")
+      return (
+        <MyButton
+          fillColor="#00A254"
+          style={{ marginRight: "20px" }}
+          onPress={() => {
+            history.push("/DashBoard");
+          }}
+        >
+          DashBoard
+        </MyButton>
+      );
+  };
   return (
     <div>
       <div
@@ -37,19 +51,7 @@ export default function Nav({ login }) {
         }}
       >
         <div style={{ flex: 1, paddingLeft: "50px" }}></div>
-        <div>
-          {loggedin && (
-            <MyButton
-              fillColor="#00A254"
-              style={{ marginRight: "20px" }}
-              onPress={() => {
-                history.push("/DashBoard");
-              }}
-            >
-              DashBoard
-            </MyButton>
-          )}
-        </div>
+        <div>{getdashboard()}</div>
         <div style={{ display: "flex" }}>
           <Link to="/Market">
             {!(NavHead == "Market") && (
@@ -80,13 +82,12 @@ export default function Nav({ login }) {
             </div>
           ) : (
             <MyButton
-              onmo
               style={{
                 marginRight: "25px",
                 border: "1px solid red",
                 color: "red",
               }}
-              fillColor={"#f5f5f5"}
+              fillColor={"#f5f5f500"}
               hover
               onPress={() => {
                 action.setlogin(false);

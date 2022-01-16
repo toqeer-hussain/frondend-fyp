@@ -36,7 +36,7 @@ export default function ForgetPassword() {
     validationSchema: Uservalidation,
     onSubmit: (values) => {
       setserverMessage({ err: "", msg: "" });
-      action.setlogin(true);
+      // action.setlogin(true);
 
       values.Role = type;
 

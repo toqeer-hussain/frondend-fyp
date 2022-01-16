@@ -49,7 +49,7 @@ export default function ProDashBoard() {
               fontSize: "35px",
             }}
           >
-            DashBoad
+            Dashboard
           </p>
           <p
             style={{
@@ -60,13 +60,13 @@ export default function ProDashBoard() {
               fontSize: "15px",
             }}
           >
-            Dashboard for Promoter
+            Stats Overview
           </p>
         </div>
         {/* <Spacer space="10" /> */}
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Card
-            SubHeading="Total Click"
+            SubHeading="Total Clicks"
             Heading={data.click}
             Color="green"
             ICON={TouchApp}
@@ -90,7 +90,7 @@ export default function ProDashBoard() {
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Pen.Comissions(RS)"
+            SubHeading="Pen.Comissions(Rs)"
             Heading={data.pendingcom || 0}
             Color="red"
             ICON={TouchApp}

@@ -79,7 +79,7 @@ const bankvalidation = Yup.object({
   accountnumber: Yup.number().positive().integer().required(),
 });
 
-export default function Probankdetail() {
+export default function Probankdetail({ advertiser }) {
   const [data, setdata] = useState(null);
   const [inprogress, setinprogress] = useState(false);
   const [success, setsuccess] = useState(false);
@@ -99,12 +99,11 @@ export default function Probankdetail() {
         setinprogress(false);
         setsuccess(true);
       } else {
-        console.log("called for nenw record")
+        console.log("called for nenw record");
         setinprogress(false);
         settext(true);
-          setsuccess(true);
-        }
-      
+        setsuccess(true);
+      }
     },
   });
 
@@ -213,6 +212,21 @@ export default function Probankdetail() {
           )}
         </MyButton>
       </div>{" "}
+      <Spacer space="10" />
+      {advertiser ? (
+        <div>
+          <strong>Note:</strong> Always use these bank details to make
+          transactions with JVsea.com You are required to always pay the full
+          due payment which will include 2% JVsea.com fee. Please check the
+          pending commissions on your dashboard for exact count
+        </div>
+      ) : (
+        <div>
+          <strong>Note: </strong> You'll recieve all your payments on your given
+          bank account number.
+        </div>
+      )}
+      <Spacer space="10" />
     </div>
   );
 }

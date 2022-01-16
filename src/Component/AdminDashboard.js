@@ -57,7 +57,7 @@ export default function AdminDashBoard() {
               fontSize: "35px",
             }}
           >
-            DashBoard
+            Dashboard
           </p>
           <p
             style={{
@@ -68,19 +68,19 @@ export default function AdminDashBoard() {
               fontSize: "15px",
             }}
           >
-            DashBoard for Stats
+            Stats Overview
           </p>
         </div>
         <Spacer space="10" />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Card
-            SubHeading="Total Sale"
+            SubHeading="Total Sales"
             Heading={data.totalsale || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Succeed Sale"
+            SubHeading="Successful Sales"
             Heading={data.totalsucceed || "0"}
             Color="green"
             ICON={TouchApp}
@@ -88,19 +88,19 @@ export default function AdminDashBoard() {
           <Card
             SubHeading="Returns"
             Heading={data.Refund || "0"}
+            Color="red"
+            ICON={TouchApp}
+          />
+          <Card
+            SubHeading="Revenue(Rs)"
+            Heading={data.revenuecount || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Revenue"
-            Heading={data.revenuecount || "0"}
-            Color="red"
-            ICON={TouchApp}
-          />
-          <Card
-            SubHeading="Earning"
+            SubHeading="Earnings(Rs)"
             Heading={data.profit || "0"}
-            Color="red"
+            Color="green"
             ICON={TouchApp}
           />
         </div>
@@ -147,9 +147,7 @@ export default function AdminDashBoard() {
             Blocked Users
           </div>
         </div>
-        <Border space="5" />
 
-        <Spacer space="10" />
         <div
           style={{
             display: "flex",
@@ -164,33 +162,7 @@ export default function AdminDashBoard() {
               justifyContent: "flex-end",
               marginBottom: "5px",
             }}
-          >
-            <TextField
-              id="standard-basic"
-              Heading="Brands"
-              type="text"
-              style={{ marginRight: "5px" }}
-              label="Search"
-              placeholder="Search Here"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <div
-              style={{
-                background: "green",
-                color: "white",
-                padding: "3px",
-                // alignSelf: "center",
-              }}
-            >
-              EXPORT
-            </div>
-          </div>
+          ></div>
         </div>
         <Border space="4" />
         {selectiontable()}

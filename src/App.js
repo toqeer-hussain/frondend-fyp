@@ -42,6 +42,7 @@ import FourOFour from "./Component/FourOFour";
 import Dashboard from "@material-ui/icons/Dashboard";
 import ProtectedRoute from "./UI/ProtectedRoute";
 import AdminBrandProfile from "./AdminBrandProfile";
+import VerifyMail from "./VerifyMail";
 
 export const UserContext = createContext();
 
@@ -147,6 +148,9 @@ function App() {
 
             <Route path="/Pending">
               <AdminBrandProfile />
+            </Route>
+            <Route exact path="/verify_Mail/:verifytoken">
+              <VerifyMail />
             </Route>
 
             <Route exact path="/Reset_Password">

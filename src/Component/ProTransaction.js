@@ -96,16 +96,6 @@ export default function Transaction() {
           <div style={{ fontWeight: "bold", fontSize: "25px" }}>
             Recent Transaction
           </div>
-          <div
-            style={{
-              background: "green",
-              color: "white",
-              padding: "3px",
-              alignSelf: "center",
-            }}
-          >
-            EXPORT
-          </div>
         </div>
         <Border space="5" />
         <ProTransaction />

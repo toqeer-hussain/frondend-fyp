@@ -148,13 +148,13 @@ export default function AdminTransaction() {
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Amount Sent by Advertise"
+            SubHeading="Amount Sent by Advertisers(Rs)"
             Heading={data.brandcom || "0"}
             Color="green"
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Amount Sent to Promoter"
+            SubHeading="Amount Sent to Promoters(Rs)"
             Heading={data.promotercom || "0"}
             Color="green"
             ICON={TouchApp}

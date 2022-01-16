@@ -13,8 +13,10 @@ import {
 } from "@material-ui/core";
 import Spacer from "./Spacer";
 import ApiCall from "../BackendCall";
+import MyButton from "./MyButton";
 export default function MyTable({ promoter }) {
   const [data, setdata] = useState([]);
+  const [search, setsearch] = useState("");
   //   console.log("test", test);
   const getdata = async () => {
     const response = await ApiCall.get("/brandlist");
@@ -22,9 +24,14 @@ export default function MyTable({ promoter }) {
     setdata(response.data);
   };
 
+  const blockuser = async (id) => {
+    const response = await ApiCall.get("/blockuser/" + id);
+    setsearch(response.data);
+    console.log("find data", search);
+  };
   useEffect(() => {
     getdata();
-  }, []);
+  }, [search]);
 
   return (
     <div style={{ marginTop: "10px" }}>
@@ -57,28 +64,38 @@ export default function MyTable({ promoter }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row, index) => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {index + 1}
-                </TableCell>
-                <TableCell align="left">{row.name}</TableCell>
-                <TableCell align="right">{row.totalclick}</TableCell>
-                <TableCell align="right">{row.salecount}</TableCell>
-                <TableCell align="right">
-                  {row.conversion?.toFixed(2) || "0"}
-                </TableCell>
-                <TableCell align="right">{row.returncount}</TableCell>
-                <TableCell align="right">{row.returnper || "0"}</TableCell>
+            {data.map(
+              (row, index) =>
+                !row?.block && (
+                  <TableRow key={row.name}>
+                    <TableCell component="th" scope="row">
+                      {index + 1}
+                    </TableCell>
+                    <TableCell align="left">{row.name}</TableCell>
+                    <TableCell align="right">{row.totalclick}</TableCell>
+                    <TableCell align="right">{row.salecount}</TableCell>
+                    <TableCell align="right">
+                      {row.conversion?.toFixed(2) || "0"}
+                    </TableCell>
+                    <TableCell align="right">{row.returncount}</TableCell>
+                    <TableCell align="right">{row.returnper || "0"}</TableCell>
 
-                <TableCell
-                  align="right"
-                  style={{ color: "red", fontWeight: "600" }}
-                >
-                  Block
-                </TableCell>
-              </TableRow>
-            ))}
+                    <TableCell
+                      align="right"
+                      style={{ color: "red", fontWeight: "600" }}
+                    >
+                      <MyButton
+                        fillColor={"red"}
+                        onPress={() => {
+                          blockuser(row.id);
+                        }}
+                      >
+                        Block
+                      </MyButton>
+                    </TableCell>
+                  </TableRow>
+                )
+            )}
           </TableBody>
         </Table>
       </TableContainer>

@@ -106,9 +106,7 @@ function RowData({ row, index }) {
           fullWidth
           style={{ marginRight: "12px" }}
         >
-          <InputLabel id="demo-simple-select-outlined-label">
-            Category
-          </InputLabel>
+          <InputLabel id="demo-simple-select-outlined-label">Status</InputLabel>
           <Select
             labelId="demo-simple-select-outlined-label"
             id="demo-simple-select-outlined"

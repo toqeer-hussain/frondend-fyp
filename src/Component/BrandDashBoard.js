@@ -50,7 +50,7 @@ export default function BdDashBoard() {
               fontSize: "35px",
             }}
           >
-            DashBoard
+            Dashboard
           </p>
           <p
             style={{
@@ -61,19 +61,19 @@ export default function BdDashBoard() {
               fontSize: "15px",
             }}
           >
-            DashBoard Stats for Brand
+            Stats Overview
           </p>
         </div>
         <Spacer space="10" />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Card
-            SubHeading="Total Sale"
+            SubHeading="Total Sales"
             Heading={data.totalSale}
             Color="green"
             ICON={TouchApp}
           />{" "}
           <Card
-            SubHeading="Succeed"
+            SubHeading="Successful Sales"
             Heading={data.succeed}
             Color="green"
             ICON={TouchApp}
@@ -91,7 +91,7 @@ export default function BdDashBoard() {
             ICON={TouchApp}
           />
           <Card
-            SubHeading="Pen.Comissions"
+            SubHeading="Pen.Comissions(Rs)"
             Heading={data.pendingcom}
             Color="red"
             ICON={TouchApp}
