@@ -12,7 +12,7 @@
     "axios": "^0.22.0",
     "colornames": "^1.1.1",
     "copy-text-to-clipboard": "^3.0.1",
-    "copy-to-clipboard": "^3.3.1",
+    "copy-to-clipboard": "^3.3.3",
     "formik": "^2.2.9",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
