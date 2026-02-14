@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.22.0",
+    "axios": "^1.13.5",
     "colornames": "^1.1.1",
     "copy-text-to-clipboard": "^3.0.1",
     "copy-to-clipboard": "^3.3.1",
@@ -18,7 +18,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.0",
     "use-debounce": "^7.0.1",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
